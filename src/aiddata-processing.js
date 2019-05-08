@@ -38,6 +38,29 @@ function groupByDonors(data) {
 	return result
 }
 
-function groupByPurposes(data) {
-	
+function groupByPurpose(data) {
+	let result = data.reduce((result, d) => {
+		let currentPurpose = result[d.coalesced_purpose_name] || {
+			"Purpose": d.coalesced_purpose_name,
+			"TotalAmount": 0,
+			"Donations": {}
+		}
+		if (!currentPurpose.Donations[d.donor]) {
+			currentPurpose.Donations[d.donor] = {
+				"Donor": d.donor,
+				"Amount": 0
+			}
+		}
+		currentPurpose.Donations[d.donor].Amount += parseInt(d.commitment_amount_usd_constant)
+		currentPurpose.TotalAmount += parseInt(d.commitment_amount_usd_constant)
+		result[d.coalesced_purpose_name] = currentPurpose
+		return result
+	},{})
+
+	// Convert to array
+	result = Object.keys(result).map(key => result[key])
+	result.sort((a, b) => {
+		return d3.descending(a.TotalAmount,b.TotalAmount)
+	})
+  	return result
 }
