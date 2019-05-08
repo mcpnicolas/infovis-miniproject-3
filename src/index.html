@@ -1,0 +1,52 @@
+<!-- Madeleine Nicolas, mpn272 -->
+
+<html>
+    <head>
+		<link rel="stylesheet" href="style.css">
+		<script src="https://d3js.org/d3.v5.js"></script>
+        <script src="aiddata-processing.js"></script>
+<!-- 		<script src="aiddata-config.js"></script>
+		<script src="aiddata-vis1.js"></script>
+		<script src="aiddata-vis2.js"></script>
+		<script src="aiddata-vis3.js"></script> -->
+        <script src="aiddata-main.js"></script>
+    </head>
+    
+    <body>
+        <h1 class="title">InfoVis: Mini-Project 3</h1>
+		<h1 class="author">by Maddie Nicolas</h1>
+		<div class="sidebar">
+			<h2>Info about the AidData dataset</h2>
+			<p>The AidData dataset contains information about aid donations between two countries.<br/><br/>Each row represents one transaction between two countries with the following attributes:
+				<ul>
+					<li><b>Year:</b> year of the commitment</li>
+					<li><b>Donor</b> country providing the financial resource</li>
+					<li><b>Recipient:</b> country or organization receiving the money</li>
+					<li><b>Commitment Amount USD:</b> the total amount of financial resources provided</li>
+					<li><b>Coalesced Purpose Name:</b> the purpose of the transaction</li>
+				</ul>
+			</p>
+        </div>
+        <div class="vis">
+			<h2>Visualization 1</h2>
+            <p>Create an overview of the relationships between countries so that it is possible to see who donates to whom and how much.
+                <ul>
+                    <li>Who are the major donors and to which countries do they donate the most? And conversely, who are the major receivers and which countries do they receive from the most?</li>
+                    <li>Are there groups of countries that tend to donate/receive to/from a similar set of countries?</li>
+                </ul>
+            </p>
+            <svg id="Vis1Chart"></svg>
+		</div>
+		<div class="vis">
+            <h2>Visualization 3</h2>
+            <p>Considering only the top 5 purposes of donation:
+                <ul>
+                    <li>How does the relationship between countries look like in terms of purposes?</li>
+                    <li>What purposes do countries donate for to other countries?</li>
+                    <li>Are there countries that donate to a given country using multiple purposes? Or do countries always donate using one single purpose when donating to another country?</li>
+                </ul>
+                </p>
+			<svg id="Vis3Chart"></svg>
+		</div>
+    </body>
+</html>
