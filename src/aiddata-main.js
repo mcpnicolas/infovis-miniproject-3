@@ -2,9 +2,9 @@ function processData() {
 	// load data
 	let aiddata = store.aiddata
 	// process data - call functions to group by
-
-/* 	console.log("Vis 1 - All countries with yearly net amounts: ",countriesList)
-	console.log("Vis 2 - Top 10 purposes with yearly donations: ",topPurposes)
+    let donors = groupByDonors(aiddata)
+    console.log("Vis 1 - All donors with their recipients ",donors)
+/* 	console.log("Vis 2 - Top 10 purposes with yearly donations: ",topPurposes)
     console.log("Vis 3 - All recipients from Japan with yearly donations: ",japanRecipients) */
     
 	// load configs
