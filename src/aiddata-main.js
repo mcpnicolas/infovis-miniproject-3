@@ -11,6 +11,8 @@ function processData() {
     let purposes = groupByPurpose(aiddata)
     let topPurposes = purposes.slice(0,5)
     console.log("Vis 3 - Top 5 purposes with their donors and amounts: ",topPurposes)
+    let network3 = generateNetwork3(topPurposes)
+    console.log("Vis 3 network nodes + links",network3)
     
 	// load configs
     let config1 = getVis1ChartConfig()
