@@ -126,7 +126,7 @@ function generateNetwork3(purposes) {
 				network.links.push({
 					"source": purposes[p].Donations[d].Donor,
 					"target": purposes[p].Donations[d].Recipients[r].Country,
-					"purpose": purposes[p].Purpose,
+					"purposeIndex": p,
 					"amount": purposes[p].Donations[d].Recipients[r].Amount
 				})
 			}

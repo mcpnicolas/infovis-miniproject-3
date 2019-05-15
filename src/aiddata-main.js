@@ -16,11 +16,11 @@ function processData() {
     
 	// load configs
     let config1 = getVis1ChartConfig()
-    // let config3 = getVis3ChartConfig()
+    let config3 = getVis3ChartConfig()
     
 	// draw charts
     drawVis1Chart(network1, config1)
-    // drawVis3Chart(japanRecipients,config3)
+    drawVis3Chart(topPurposes, network3, config3)
 }
 
 loadData().then(processData);
