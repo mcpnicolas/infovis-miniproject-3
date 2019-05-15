@@ -12,21 +12,28 @@ function loadData() {
 
 function groupByDonors(data) {
 	let result = data.reduce((result, d) => {
-		let currentCountry = result[d.donor] || {
+		let currentDonor = result[d.donor] || {
 			"Country": d.donor,
 			"TotalDonated": 0,
 			"Recipients": {}
 		}
-		if (!currentCountry.Recipients[d.recipient]) {
-			currentCountry.Recipients[d.recipient] = {
+		if (!currentDonor.Recipients[d.recipient]) {
+			currentDonor.Recipients[d.recipient] = {
 				"Country": d.recipient,
 				"Amount": 0
 			}
 		}
-		currentCountry.Recipients[d.recipient].Amount += parseInt(d.commitment_amount_usd_constant)
-		currentCountry.TotalDonated += parseInt(d.commitment_amount_usd_constant)
+		currentDonor.Recipients[d.recipient].Amount += parseInt(d.commitment_amount_usd_constant)
+		currentDonor.TotalDonated += parseInt(d.commitment_amount_usd_constant)
+		result[d.donor] = currentDonor
 
-		result[d.donor] = currentCountry
+		let currentRecipient = result[d.recipient] || {
+			"Country": d.recipient,
+			"TotalDonated": 0,
+			"Recipients": {}
+		}
+		result[d.recipient] = currentRecipient
+		
 		return result
 	},{})
 
@@ -36,6 +43,30 @@ function groupByDonors(data) {
 		return d3.descending(a.TotalDonated,b.TotalDonated)
 	})
 	return result
+}
+
+function generateNetwork1(donors) {
+	let network = {
+		"nodes": {},
+		"links": []
+	}
+
+	for (d in donors) {
+		network.nodes[donors[d].Country] = {
+			"name": donors[d].Country,
+			"totalDonated": donors[d].TotalDonated
+		}
+		if (donors[d].Recipients) {
+			for (r in donors[d].Recipients) {
+				network.links.push({
+					"source": donors[d].Country,
+					"target": donors[d].Recipients[r].Country,
+					"amount": donors[d].Recipients[r].Amount
+				})
+			}
+		}
+	}
+	return network
 }
 
 function groupByPurpose(data) {

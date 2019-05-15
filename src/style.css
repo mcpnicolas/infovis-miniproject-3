@@ -55,9 +55,17 @@ h2, p {
 }
 
 .vis text {
-	font-size: 12px;
+	font-size: 10px;
+}
+
+.vis text .active {
+	fill: red;
 }
 
 .vis ul {
     width: 65%;
+}
+
+#Vis1Chart .axis-left path, .axis-left line, .axis-top path, .axis-top line {
+	stroke: transparent;
 }
