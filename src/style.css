@@ -69,3 +69,12 @@ h2, p {
 #Vis1Chart .axis-left path, .axis-left line, .axis-top path, .axis-top line {
 	stroke: transparent;
 }
+
+#Vis3Chart .axis-left path, .axis-top path {
+	stroke: transparent;
+}
+
+#Vis3Chart .axis-left line, .axis-top line {
+	stroke: #e8e8e8;
+	stroke-width: 0.75;
+}

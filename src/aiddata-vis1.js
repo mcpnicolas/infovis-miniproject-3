@@ -18,7 +18,7 @@ function drawAxesVis1Chart(xScale, yScale, config) {
         .attr("class", "axis-left")
 }
 
-function drawLegendVis3Chart(colorScale, config) {
+function drawLegendVis1Chart(colorScale, config) {
     let {container, margin, height, width} = config;
 	let xLegend = 20;
     let yLegend = 0;
@@ -211,6 +211,6 @@ function drawVis1Chart(network, config) {
     }
 
     drawAxesVis1Chart(xScale, yScale, config)
-    drawLegendVis3Chart(colorScale, config)
+    drawLegendVis1Chart(colorScale, config)
 
 }

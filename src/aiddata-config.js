@@ -21,9 +21,9 @@ function getVis1ChartConfig() {
 
 function getVis3ChartConfig() {
 	let width = 850;
-	let height = 890;
+	let height = 910;
 	let margin = {
-		top: 150,
+		top: 170,
 		bottom: 10,
 		left: 120,
 		right: 10
